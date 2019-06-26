@@ -100,6 +100,20 @@ public class Location_choice extends Fragment {
                     city_selected = citiesList.get(position);
                     queryCounties();
                 }
+                else if (level == LEVEL_COUNTY) {
+                    String weatherId = countiesList.get(position).getWeatherId();
+                    //if (getActivity() instanceof MainActivity) {
+                        Intent intent = new Intent(getActivity(), Weather.class);
+                        intent.putExtra("weather_id", weatherId);
+                        startActivity(intent);
+                        getActivity().finish();
+                    //} else if (getActivity() instanceof Weather) {
+                     //   WeatherActivity activity = (WeatherActivity) getActivity();
+                     //   activity.drawerLayout.closeDrawers();
+                     //  activity.swipeRefresh.setRefreshing(true);
+                     //   activity.requestWeather(weatherId);
+                    //}
+                }
             }
         });
 
